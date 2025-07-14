@@ -8,7 +8,7 @@ BLUE = 18
 buttonPin = 17
 piezoPin = 27
 
-Melody = [500, 600, 700, 800, 900, 1000, 900, 800, 700, 600]
+Melody = [i for i in range(400, 1001, 10)]
 
 buttonCnt = 0
 
@@ -33,13 +33,14 @@ try:
 			time.sleep(0.2)
 
 		if (buttonCnt == 1):
-			GPIO.output(RED, GPIO.LOW)
-			sound.start(50)
-			for i in range(0, len(Melody)):
+			sound.start(20)
+			for i in range(len(Melody)):
+				if (i % 2 == 0):
+					GPIO.output(RED, GPIO.LOW)
 				sound.ChangeFrequency(Melody[i])
 				time.sleep(0.1)
-			sound.stop()
-			GPIO.output(RED, GPIO.HIGH)
+				if (i % 2 == 0):
+					GPIO.output(RED, GPIO.HIGH)
 			print("Buzzer and LED ON!")
 			
 		elif (buttonCnt == 2):
