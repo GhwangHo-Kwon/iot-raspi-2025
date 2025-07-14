@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>568</width>
+    <height>462</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>100</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BtnRed">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>270</y>
+     <width>99</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>BtnRed</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BtnGreen">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>270</y>
+     <width>99</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>BtnGreen</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BtnBlue">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>270</y>
+     <width>99</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>BtnBlue</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BtnOff">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>360</y>
+     <width>99</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>btnOff</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>BtnRed</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>btnRed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>285</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>133</x>
+     <y>352</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnGreen</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>btnGreen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>275</x>
+     <y>290</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>277</x>
+     <y>354</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnBlue</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>btnBlue()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>438</x>
+     <y>290</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>439</x>
+     <y>356</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnOff</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>btnOff()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>278</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>279</x>
+     <y>429</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>btnRed()</slot>
+  <slot>btnGreen()</slot>
+  <slot>btnBlue()</slot>
+  <slot>btnOff()</slot>
+ </slots>
+</ui>
