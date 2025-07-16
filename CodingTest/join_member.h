@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+void Menu();
 void joinMember();
 void userFile(char*, char*);
 void userLogin();

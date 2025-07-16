@@ -209,3 +209,5 @@ __marimo__/
 ./PiSrc/env/
 
 *.swp
+
+.vscode/
