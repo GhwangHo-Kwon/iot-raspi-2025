@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>온습도 및 가스 센서 모니터링</title>
+</head>
+<body>
+  <h1>실시간 센서 데이터</h1>
+  <p>🌡️ 온도: <span id="temp">-</span> °C</p>
+  <p>💧 습도: <span id="hum">-</span> %</p>
+  <p>🛑 가스 감지: <span id="gas">-</span></p>
+  
+  <script>
+    async function fetchData() {
+      const res = await fetch("http://192.168.0.4/:5000/data");
+      const data = await res.json();
+      document.getElementById("temp").textContent = data.temperature ?? '-';
+      document.getElementById("hum").textContent = data.humidity ?? '-';
+      document.getElementById("gas").textContent = data.gas ?? '-';
+
+      // 위험 경고 메시지 예시
+      if (data.gas > 2000) {
+        document.getElementById("gas").style.color = "red";
+      } else {
+        document.getElementById("gas").style.color = "black";
+      }
+    }
+
+    setInterval(fetchData, 3000);
+  </script>
+</body>
+</html>
