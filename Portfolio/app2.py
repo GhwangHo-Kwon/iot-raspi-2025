@@ -1,11 +1,11 @@
 from flask import Flask, jsonify, render_template
-import Adafruit_DHT
+import adafruit_dht
 from gpiozero import MCP3008
 
 app = Flask(__name__)
 
 # DHT11 설정
-sensor = Adafruit_DHT.DHT11
+sensor = adafruit_dht.DHT11
 pin = 4  # DHT11 센서 핀 번호
 
 # MQ-2 설정 (MCP3008 ADC 사용)
@@ -18,7 +18,7 @@ def index():
 @app.route('/sensor_data')
 def sensor_data():
     # 온습도 데이터 읽기
-    temperature, humidity = Adafruit_DHT.read_retry(sensor, pin)
+    temperature, humidity = adafruit_dht.read_retry(sensor, pin)
     
     # 가스 센서 데이터 읽기
     gas_level = adc.value  # 0과 1 사이의 값 (0: 0V, 1: 3.3V)
