@@ -1,32 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>온습도 및 가스 센서 모니터링</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>센서 모니터링</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-  <h1>실시간 센서 데이터</h1>
-  <p>🌡️ 온도: <span id="temp">-</span> °C</p>
-  <p>💧 습도: <span id="hum">-</span> %</p>
-  <p>🛑 가스 감지: <span id="gas">-</span></p>
-  
-  <script>
-    async function fetchData() {
-      const res = await fetch("http://192.168.0.4/:5000/data");
-      const data = await res.json();
-      document.getElementById("temp").textContent = data.temperature ?? '-';
-      document.getElementById("hum").textContent = data.humidity ?? '-';
-      document.getElementById("gas").textContent = data.gas ?? '-';
+    <h1>온습도 및 가스 센서 모니터링</h1>
 
-      // 위험 경고 메시지 예시
-      if (data.gas > 2000) {
-        document.getElementById("gas").style.color = "red";
-      } else {
-        document.getElementById("gas").style.color = "black";
-      }
-    }
+    <h2>온도 및 습도</h2>
+    <p>온도: <span id="temperature">loading...</span> °C</p>
+    <p>습도: <span id="humidity">loading...</span> %</p>
 
-    setInterval(fetchData, 3000);
-  </script>
+    <h2>가스 농도</h2>
+    <p>가스 농도: <span id="gas_level">loading...</span></p>
+
+    <script>
+        function updateSensorData() {
+            // /sensor_data 경로에서 JSON 데이터를 가져오기
+            $.getJSON('/sensor_data', function(data) {
+                // 가져온 데이터를 HTML 요소에 업데이트
+                $('#temperature').text(data.temperature);
+                $('#humidity').text(data.humidity);
+                $('#gas_level').text(data.gas_level);
+            });
+        }
+
+        // 1초마다 센서 데이터를 갱신
+        setInterval(updateSensorData, 1000);  // 1000ms = 1초
+    </script>
 </body>
 </html>
